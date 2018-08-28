@@ -1,12 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { CreateStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import allReducers from './reducers/index'
+
 export default class App extends React.Component {
   render() {
+    let store = CreateStore(allReducers);
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <Provider store={store}>
+      </Provider>
     );
   }
 }
